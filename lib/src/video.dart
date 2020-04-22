@@ -754,6 +754,14 @@ class _AwsomeVideoPlayerState extends State<AwsomeVideoPlayer>
     /// 自定义拓展元素
     videoChildrens.addAll(widget.children ?? []);
 
+    if (fullscreened) {
+      return Container(
+        width: screenSize.width,
+        height: screenSize.height,
+        child: Stack(children: videoChildrens),
+      );
+    }
+
     /// 构建video
     return AspectRatio(
       aspectRatio: fullscreened
