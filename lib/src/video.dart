@@ -5,6 +5,7 @@ import 'package:orientation/orientation.dart';
 import 'package:video_player/video_player.dart';
 import 'package:screen/screen.dart';
 import 'package:connectivity/connectivity.dart';
+import 'dart:io';
 
 import './video_style.dart';
 import './video_play_options.dart';
@@ -410,7 +411,7 @@ class _AwsomeVideoPlayerState extends State<AwsomeVideoPlayer>
     if (isNetwork) {
       return VideoPlayerController.network(widget.dataSource);
     } else if (isFile) {
-      return VideoPlayerController.file(widget.dataSource);
+      return VideoPlayerController.file(File(widget.dataSource));
     } else {
       return VideoPlayerController.asset(widget.dataSource);
     }
